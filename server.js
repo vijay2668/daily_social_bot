@@ -17,10 +17,10 @@ app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
 });
 
-const bot = new Telegraf(process.env.BOT_TOKEN);
+const bot = new Telegraf("7050852809:AAGPRIY_KA1wPrLoNoy46MC1C4M-4uZchSk");
 
 const openai = new OpenAI({
-    apiKey: process.env.OPENAI_KEY
+    apiKey: "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"
 });
 
 try {
@@ -115,7 +115,7 @@ bot.command('generate', async (ctx) => {
                     `
                 }
             ],
-            model: process.env.OPENAI_MODEL
+            model: "gpt-3.5-turbo"
         });
 
 
