@@ -5,7 +5,9 @@ import connectDb from "./src/config/db.js";
 import { message } from "telegraf/filters";
 import OpenAI from "openai";
 import express from "express";
+import dotenv from "dotenv";
 
+dotenv.config();
 const app = express()
 
 app.get("/", (req, res) => {
@@ -17,10 +19,10 @@ app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
 });
 
-const bot = new Telegraf("7050852809:AAGPRIY_KA1wPrLoNoy46MC1C4M-4uZchSk");
+const bot = new Telegraf(process.env.BOT_TOKEN);
 
 const openai = new OpenAI({
-    apiKey: "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"
+    apiKey: process.env.OPENAI_KEY
 });
 
 try {
@@ -115,7 +117,7 @@ bot.command('generate', async (ctx) => {
                     `
                 }
             ],
-            model: "gpt-3.5-turbo"
+            model: process.env.OPENAI_MODEL
         });
 
 
