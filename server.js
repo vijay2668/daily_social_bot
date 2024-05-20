@@ -4,6 +4,18 @@ import eventModel from "./src/models/Event.js";
 import connectDb from "./src/config/db.js";
 import { message } from "telegraf/filters";
 import OpenAI from "openai";
+import express from "express";
+
+const app = express()
+
+app.get("/", (req, res) => {
+    res.send("Bot is alive");
+});
+
+const port = 3000;
+app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}`);
+});
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
