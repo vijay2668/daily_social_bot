@@ -1,11 +1,11 @@
-import { Telegraf } from "telegraf";
-import userModel from "./src/models/User.js";
-import eventModel from "./src/models/Event.js";
-import connectDb from "./src/config/db.js";
-import { message } from "telegraf/filters";
-import OpenAI from "openai";
-import express from "express";
-import dotenv from "dotenv";
+const { Telegraf } = require("telegraf");
+const userModel = rrquire("./src/models/User.js");
+const eventModel = require("./src/models/Event.js");
+const connectDb = require("./src/config/db.js");
+const { message } = require("telegraf/filters");
+const OpenAI = require("openai");
+const express = require("express");
+const dotenv = require("dotenv");
 
 dotenv.config();
 const app = express()
